@@ -10,6 +10,7 @@ function CompanyList(){
   const [isLoading, setIsLoading] = useState(true);
 
   function filterCompanies(query) {
+    console.log(query);
       async function getData() {
         setIsLoading(true);
         let companies = await JoblyApi.getCompanies(query);
@@ -33,7 +34,7 @@ function CompanyList(){
 
   return(
     <div>
-      <SearchForm/>
+      <SearchForm inputName="name" filter={filterCompanies}/>
       <div className ="companyList-companies">This is the company list
         {companies.map( 
           company => (

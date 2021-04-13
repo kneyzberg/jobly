@@ -76,9 +76,9 @@ class JoblyApi {
     return res.company;
   }
 
-  static async getCompanies() {
+  static async getCompanies(query) {
     // TODO write query for filter
-    let res = await this.request(`companies/`);
+    let res = await this.request(`companies/`, query);
     return res.companies;
   }
 
