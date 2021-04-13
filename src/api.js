@@ -38,12 +38,12 @@ class JoblyApi {
    //  auth routes
 
   static async registerUser(data) {
-    let res = await this.request(`auth/register`, data, method="post");
+    let res = await this.request(`auth/register`, data, "post");
     return res.token;
   }
   
   static async loginUser(data) {
-    let res = await this.request(`auth/token`, data, method="post");
+    let res = await this.request(`auth/token`, data, "post");
     return res.token;
   }
   
@@ -54,18 +54,18 @@ class JoblyApi {
   }
 
   // static async createUser(data) {
-  //   let res = await this.request(`users/`, data, method="post");
+  //   let res = await this.request(`users/`, data, "post");
   //   return res.user;
   // }
 
   static async updateUser(username, data) {
-    let res = await this.request(`users/${username}`, data, method="patch");
+    let res = await this.request(`users/${username}`, data, "patch");
     return res.user;
   }
 
 
   static async applyToJob(username, jobId ) {
-    let res = await this.request(`users/${username}/jobs/${jobId}`, method="patch");
+    let res = await this.request(`users/${username}/jobs/${jobId}`, "patch");
     return res.job;
   }
   
@@ -76,9 +76,9 @@ class JoblyApi {
     return res.company;
   }
 
-  static async getCompanies(filterData) {
+  static async getCompanies() {
     // TODO write query for filter
-    let res = await this.request(`companies/`, filterData);
+    let res = await this.request(`companies/`);
     return res.companies;
   }
 

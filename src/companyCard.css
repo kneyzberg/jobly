@@ -1,0 +1,10 @@
+.companyCard-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.companyCard-card {
+  border: 1px solid black;
+  margin: 20px;
+  padding: 10px;
+}
