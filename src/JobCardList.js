@@ -1,11 +1,14 @@
 import JobCard from "./JobCard";
 
 
-function JobCardList(){
+function JobCardList({ jobs }) {
 
-  return(
-    <div>This is the Job list page
-      <JobCard/>
+  return (
+    <div>
+      {jobs.map(job =>
+        <JobCard key={job.id}
+          job={job} />
+      )}
     </div>
   )
 

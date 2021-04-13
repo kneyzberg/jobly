@@ -9,21 +9,17 @@ function CompanyList(){
   const [companies, setCompanies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  function filterCompanies(query) {
-    console.log(query);
-      async function getData() {
+  async function filterCompanies(query) {
         setIsLoading(true);
         let companies = await JoblyApi.getCompanies(query);
-        setCompanies(comps => companies);
+        setCompanies(companies);
         setIsLoading(false);
-    }
-    getData();
   }
 
   useEffect(function getCompanies() {
     async function fetchData(){
       const companyResult = await JoblyApi.getCompanies()
-      setCompanies(company => companyResult);
+      setCompanies(companyResult);
       console.log(companyResult);
       setIsLoading(false);
     }

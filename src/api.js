@@ -85,12 +85,12 @@ class JoblyApi {
   //job API routes
   static async getJob(id) {
     let res = await this.request(`companies/${id}`);
-    return res.company;
+    return res.job;
   }
 
   static async getJobs(filterData) {
     let res = await this.request(`jobs/`, filterData);
-    return res.company;
+    return res.jobs;
   }
 
   

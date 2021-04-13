@@ -1,0 +1,20 @@
+.Navbar-nav a.active {
+  color: black;
+  font-weight: bold;
+}
+
+.Navbar-nav a {
+  color: rgb(0, 106, 255);
+  text-decoration: none;
+}
+
+.Navbar-list{
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+}
+
+.Navbar-listitem{
+  text-decoration: none;
+  padding: 10px;
+}
