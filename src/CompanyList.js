@@ -31,7 +31,7 @@ function CompanyList(){
   return(
     <div>
       <SearchForm inputName="name" filter={filterCompanies}/>
-      <div className ="companyList-companies">This is the company list
+      <div className ="companyList-companies">
         {companies.map( 
           company => (
             <CompanyCard

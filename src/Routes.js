@@ -7,9 +7,18 @@ import JobList from "./JobList";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 import ProfileForm from "./ProfileForm";
+import { useState } from "react";
+import JoblyApi from "./api";
 
 
 function Routes(){
+//user state...possibly check true or false if user is logged in or not
+  const [token, setToken] = useState("");
+
+
+  function updateToken(token) {
+    JoblyApi.token = setToken(token);
+  }
 
   return(
     <Switch>
@@ -26,7 +35,7 @@ function Routes(){
         <JobList/>
       </Route>
       <Route exact path="/login">
-        <LoginForm/>
+        <LoginForm updateToken={updateToken}/>
       </Route>
       <Route exact path="/signup">
         <SignUpForm/>

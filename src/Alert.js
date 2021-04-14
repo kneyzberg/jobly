@@ -1,8 +1,9 @@
-function Alert(){
+function Alert({errors}){
+
 
   return(
-    <div>
-      <div>This is the alert component</div>
+    <div className="alert alert-danger">
+      {errors.map(e => <p>{e}</p>)}
     </div>
     
   )
