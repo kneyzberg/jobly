@@ -49,6 +49,7 @@ class JoblyApi {
   
   //user API routes
   static async getUser(username) {
+    console.log(username, "in api helper!");
     let res = await this.request(`users/${username}`);
     return res.user;
   }

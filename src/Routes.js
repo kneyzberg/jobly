@@ -11,19 +11,14 @@ import { useState } from "react";
 import JoblyApi from "./api";
 
 
-function Routes(){
+function Routes({user, login, signup}){
 //user state...possibly check true or false if user is logged in or not
-  const [token, setToken] = useState("");
 
-
-  function updateToken(token) {
-    JoblyApi.token = setToken(token);
-  }
 
   return(
     <Switch>
       <Route exact path="/">
-        <Homepage/>
+        <Homepage user={user}/>
       </Route>
       <Route exact path="/companies">
         <CompanyList/>
@@ -35,10 +30,10 @@ function Routes(){
         <JobList/>
       </Route>
       <Route exact path="/login">
-        <LoginForm updateToken={updateToken}/>
+        <LoginForm login={login}/>
       </Route>
       <Route exact path="/signup">
-        <SignUpForm/>
+        <SignUpForm signup={signup}/>
       </Route>
       <Route exact path="/profile">
         <ProfileForm/>

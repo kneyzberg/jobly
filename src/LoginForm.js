@@ -3,7 +3,7 @@ import JoblyApi from "./api";
 import {useState} from "react";
 import {useHistory} from "react-router-dom";
 
-function LoginForm({ updateToken }) {
+function LoginForm({ login }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [formErrors, setFormErrors] = useState([]);
   const history = useHistory();
@@ -15,12 +15,9 @@ function LoginForm({ updateToken }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData, "formData");
     try {
-      let result = await JoblyApi.loginUser(formData);
-      console.log(result, "result");
-      updateToken(result);
-      history.push("/")
+      await login(formData);
+      history.push("/");
     } catch(err){
       setFormErrors(err);
     }
