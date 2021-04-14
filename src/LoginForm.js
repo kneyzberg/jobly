@@ -5,8 +5,7 @@ import {useHistory} from "react-router-dom";
 
 function LoginForm({ updateToken }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
-  const [errors, setErrors] = useState([]);
-  console.log(errors);
+  const [formErrors, setFormErrors] = useState([]);
   const history = useHistory();
 
   function handleChange(e) {
@@ -23,24 +22,26 @@ function LoginForm({ updateToken }) {
       updateToken(result);
       history.push("/")
     } catch(err){
-      setErrors(err);
+      setFormErrors(err);
     }
   }
 
 
   return (
     <div className="">
-      {errors ? <Alert errors={errors} /> : null}
+      {!!formErrors.length && 
+        <Alert errors={formErrors}/>
+      }
       <form onSubmit={handleSubmit}>
         <div className="form-group row">
-          <label htmlFor="username" className="col-sm-2 col-form-label">Username/</label>
-          <div className="col-sm-10">
-            <input onChange={handleChange} name="username" type="text" className="form-control-plaintext" id="username" placeholder="enter username" value={formData.username}/>
+          <label htmlFor="username" className="col-sm-2 col-form-label">Username</label>
+          <div className="col-sm-6">
+            <input onChange={handleChange} name="username" type="text" className="form-control" id="username" placeholder="enter username" value={formData.username}/>
           </div>
           </div>
           <div className="form-group row">
             <label htmlFor="password" className="col-sm-2 col-form-label">Password</label>
-          <div className="col-sm-10">
+          <div className="col-sm-6">
             <input onChange={handleChange} name="password" type="password" className="form-control" id="password" placeholder="Password" value={formData.value}/>
           </div>
         </div>
