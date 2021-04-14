@@ -3,9 +3,9 @@ import UserContext from "./UserContext";
 import {useContext} from "react";
 
 
-function Homepage({user}){
+function Homepage(){
   const {currentUser} = useContext(UserContext)
-  console.log(user, "user");
+  console.log("current user", currentUser);
 
   return(
     <div>
