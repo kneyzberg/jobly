@@ -28,23 +28,20 @@ function LoginForm({ updateToken }) {
 
 
   return (
-    <div className="">
+    <div className="LoginForm-Container">
+      <h3>Log In</h3>
       {!!formErrors.length && 
         <Alert errors={formErrors}/>
       }
       <form onSubmit={handleSubmit}>
-        <div className="form-group row">
           <label htmlFor="username" className="col-sm-2 col-form-label">Username</label>
-          <div className="col-sm-6">
+          <div className="col-sm-4">
             <input onChange={handleChange} name="username" type="text" className="form-control" id="username" placeholder="enter username" value={formData.username}/>
           </div>
-          </div>
-          <div className="form-group row">
             <label htmlFor="password" className="col-sm-2 col-form-label">Password</label>
-          <div className="col-sm-6">
+          <div className="col-sm-4">
             <input onChange={handleChange} name="password" type="password" className="form-control" id="password" placeholder="Password" value={formData.value}/>
           </div>
-        </div>
         <button class="btn btn-primary " type="submit">Submit</button>
       </form>
     </div>
