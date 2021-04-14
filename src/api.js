@@ -49,7 +49,6 @@ class JoblyApi {
   
   //user API routes
   static async getUser(username) {
-    console.log(username, "in api helper!");
     let res = await this.request(`users/${username}`);
     return res.user;
   }
@@ -86,12 +85,12 @@ class JoblyApi {
   //job API routes
   static async getJob(id) {
     let res = await this.request(`companies/${id}`);
-    return res.job;
+    return res.company;
   }
 
   static async getJobs(filterData) {
     let res = await this.request(`jobs/`, filterData);
-    return res.jobs;
+    return res.company;
   }
 
   
