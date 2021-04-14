@@ -1,13 +1,18 @@
 import SearchForm from "./SearchForm";
 import {useState, useEffect} from  "react";
 import JoblyApi from "./api"
-
+import UserContext from "./UserContext";
+import {useContext} from "react";
+import {Redirect} from "react-router-dom";
 
 import CompanyCard from "./CompanyCard";
+
 
 function CompanyList(){
   const [companies, setCompanies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const {currentUser} = useContext(UserContext);
 
   async function filterCompanies(query) {
         setIsLoading(true);
@@ -27,6 +32,10 @@ function CompanyList(){
   }, []);
 
   if (isLoading) return <i>Loading...</i>;
+
+  if (currentUser === null) {
+    return <Redirect exact path ="/" />;
+  }
 
   return(
     <div>

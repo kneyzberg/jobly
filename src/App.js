@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
+import UserContext from "./UserContext";
 import {useEffect, useState } from "react";
 import {BrowserRouter } from "react-router-dom";
 import {decodeToken}  from "react-jwt";
@@ -45,8 +45,10 @@ function App() {
   
   return (
     <BrowserRouter>
-      <Navbar logout={logoutUser} user={currentUser}/>
-      <Routes user={currentUser} login={loginUser} signup={signUpUser} />
+      <UserContext.Provider value={{currentUser}}>
+        <Navbar logout={logoutUser} />
+        <Routes login={loginUser} signup={signUpUser} />
+      </UserContext.Provider>
     </BrowserRouter>
   );
 }

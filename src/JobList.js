@@ -3,11 +3,16 @@ import JoblyApi from "./api"
 
 import JobCardList from "./JobCardList";
 import {useState, useEffect} from "react";
+import UserContext from "./UserContext";
+import {useContext} from "react";
+import {Redirect} from "react-router-dom";
 
 
 function JobList(){
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const {currentUser} = useContext(UserContext);
 
   async function filterJobs(query) {
       setIsLoading(true);
@@ -30,6 +35,10 @@ function JobList(){
   }, []);
 
   if (isLoading) return <i>Loading...</i>;
+
+  if (currentUser === null) {
+    return <Redirect exact path ="/" />;
+  }
 
 
   return(

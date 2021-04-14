@@ -1,13 +1,18 @@
 import { NavLink, Redirect } from "react-router-dom";
 import "./Navbar.css"
+import UserContext from "./UserContext";
+import {useContext} from "react";
 
-function Navbar({ user, logout }) {
+
+function Navbar({ logout }) {
+
+  const {currentUser} = useContext(UserContext)
 
   return (
     <nav className="Navbar-nav">
       <ul className="Navbar-list">
         <li className="Navbar-listitem"><NavLink exact to="/">Jobly </NavLink></li>
-        {user && (
+        {currentUser && (
           <>
             <li className="Navbar-listitem"><NavLink exact to="/companies">Companies</NavLink></li>
             <li className="Navbar-listitem"><NavLink exact to="/jobs">Jobs</NavLink></li>
@@ -16,7 +21,7 @@ function Navbar({ user, logout }) {
           </>
         )
         }
-        {!user && (
+        {!currentUser && (
           <>
             <li className="Navbar-listitem"><NavLink exact to="/login">Login</NavLink></li>
             <li className="Navbar-listitem"><NavLink exact to="/signup">Signup</NavLink></li>

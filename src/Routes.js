@@ -11,14 +11,14 @@ import { useState } from "react";
 import JoblyApi from "./api";
 
 
-function Routes({user, login, signup}){
+function Routes({login, signup}){
 //user state...possibly check true or false if user is logged in or not
 
 
   return(
     <Switch>
       <Route exact path="/">
-        <Homepage user={user}/>
+        <Homepage/>
       </Route>
       <Route exact path="/companies">
         <CompanyList/>
