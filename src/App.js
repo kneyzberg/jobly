@@ -54,8 +54,7 @@ function App() {
 
   async function userApplyToJob(username, jobId){
     let result = await JoblyApi.applyToJob(username, jobId);
-    let updatedUserInfo = await JoblyApi.getUser(username);
-    setCurrentUser(updatedUserInfo);
+    setCurrentUser(user => ({...user, applications:[...user.applications, result]}));
   }
   
   return (
