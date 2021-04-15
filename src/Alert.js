@@ -1,11 +1,12 @@
-function Alert({errors}){
-
+function Alert({errors, alertType}){
 
   return(
-    <div className="alert alert-danger">
-      {errors.map(e => <p key={e}>{e}</p>)}
+    <div className={`alert alert-${alertType}`}>
+      {alertType === "danger" && 
+      errors.map(e => <p key={e}>{e}</p>)
+      }
+      {alertType === "success" && <p>Profile Updated!</p>}
     </div>
-    
   )
 }
 

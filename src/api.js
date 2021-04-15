@@ -63,6 +63,11 @@ class JoblyApi {
     return res.user;
   }
 
+  static async confirmPassword(data){
+    let res = await this.request(`auth/token`, data, "post");
+    return res
+  }
+
 
   static async applyToJob(username, jobId ) {
     let res = await this.request(`users/${username}/jobs/${jobId}`, "patch");
@@ -90,7 +95,12 @@ class JoblyApi {
 
   static async getJobs(filterData) {
     let res = await this.request(`jobs/`, filterData);
-    return res.company;
+    return res.jobs;
+  }
+
+  static async applytoJob(username, id){
+    let res = await this.request(`users/${username}/jobs/${id}`);
+    return res.applied;
   }
 
   

@@ -12,7 +12,6 @@ function JobList(){
   async function filterJobs(query) {
       setIsLoading(true);
       let jobs = await JoblyApi.getJobs(query);
-      console.log(jobs);
       setJobs(jobs);
       setIsLoading(false);
 
@@ -21,7 +20,7 @@ function JobList(){
   useEffect(function getJobs() {
     async function fetchData(){
       const jobResult = await JoblyApi.getJobs();
-
+      console.log(jobResult, "jobssss");
       setJobs(jobResult);
       console.log(jobResult);
       setIsLoading(false);

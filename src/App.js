@@ -46,19 +46,11 @@ function App() {
     setIsToken(true);
   }
 
-  async function updateUser(data){
-    let result = await JoblyApi.updateUser()
-  }
-
-
   function logoutUser(){
     localStorage.removeItem("token");
     setCurrentUser(null)
     setIsToken(false);
   }
-
-
-  
   
   return (
     <BrowserRouter>
