@@ -70,8 +70,8 @@ class JoblyApi {
 
 
   static async applyToJob(username, jobId ) {
-    let res = await this.request(`users/${username}/jobs/${jobId}`, "patch");
-    return res.job;
+    let res = await this.request(`users/${username}/jobs/${jobId}`, { }, "post");
+    return res.applied;
   }
   
   //company API routes
@@ -97,12 +97,6 @@ class JoblyApi {
     let res = await this.request(`jobs/`, filterData);
     return res.jobs;
   }
-
-  static async applytoJob(username, id){
-    let res = await this.request(`users/${username}/jobs/${id}`);
-    return res.applied;
-  }
-
   
 }
 

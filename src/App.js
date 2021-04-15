@@ -51,10 +51,16 @@ function App() {
     setCurrentUser(null)
     setIsToken(false);
   }
+
+  async function userApplyToJob(username, jobId){
+    let result = await JoblyApi.applyToJob(username, jobId);
+    let updatedUserInfo = await JoblyApi.getUser(username);
+    setCurrentUser(updatedUserInfo);
+  }
   
   return (
     <BrowserRouter>
-      <UserContext.Provider value={{currentUser, setCurrentUser}}>
+      <UserContext.Provider value={{currentUser, setCurrentUser, userApplyToJob}}>
         <Navbar logout={logoutUser} />
         <Routes login={loginUser} signup={signUpUser} />
       </UserContext.Provider>
