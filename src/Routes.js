@@ -14,7 +14,8 @@ import {useContext} from "react";
 
 function Routes({login, signup}){
 //user state...possibly check true or false if user is logged in or not
-  const {currentUser} = useContext(UserContext)
+  const {currentUser} = useContext(UserContext);
+  console.log(currentUser);
 
   return(
     <Switch>

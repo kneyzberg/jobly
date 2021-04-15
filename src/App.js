@@ -11,6 +11,8 @@ import JoblyApi from './api';
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isToken, setIsToken] = useState(false);
+
+  console.log(currentUser);
   
   useEffect(function getCurrentUser(){
     const token = localStorage.getItem("token");
@@ -18,8 +20,10 @@ function App() {
     async function fetchUser(){
      
       const decodedToken = decodeToken(token);
+      console.log(decodedToken);
 
       let userResult = await JoblyApi.getUser(decodedToken.username);
+      console.log(userResult, "return from api");
       setCurrentUser(userResult);
     }
 
@@ -49,7 +53,7 @@ function App() {
 
   function logoutUser(){
     localStorage.removeItem("token");
-    setCurrentUser(null);
+    setCurrentUser(null)
     setIsToken(false);
   }
 
@@ -58,7 +62,7 @@ function App() {
   
   return (
     <BrowserRouter>
-      <UserContext.Provider value={{currentUser}}>
+      <UserContext.Provider value={{currentUser, setCurrentUser}}>
         <Navbar logout={logoutUser} />
         <Routes login={loginUser} signup={signUpUser} />
       </UserContext.Provider>
