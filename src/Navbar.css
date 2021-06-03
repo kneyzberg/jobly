@@ -3,6 +3,20 @@
   font-weight: bold;
 }
 
+.Navbar-name {
+  font-size: 1.5rem;
+}
+
+.Navbar-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color:#e3f2fd;
+  align-items: baseline;
+  padding-top: 10px;
+  border-bottom: 2px solid rgb(140, 139, 139);
+}
+
+
 .Navbar-nav a {
   color: rgb(0, 106, 255);
   text-decoration: none;
@@ -11,7 +25,8 @@
 .Navbar-list{
   display: flex;
   list-style: none;
-  justify-content: space-between;
+  flex-direction: row;
+  font-size: 1.2rem;
 }
 
 .Navbar-listitem{
