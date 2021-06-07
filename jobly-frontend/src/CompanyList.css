@@ -1,0 +1,18 @@
+.CompanyList-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(sf_1.jpg) no-repeat top center;
+  background-size: cover !important;
+  -webkit-background-size: cover !important;
+  overflow: hidden;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+
+.Companylist-content{
+  margin-top: 100px;
+  background-color:#ddeeffd6;
+  padding: 30px;
+}

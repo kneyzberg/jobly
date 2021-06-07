@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState } from "react";
+import "./SearchForm.css"
 
 function SearchForm({inputName, filter}){
   const [formData, setFormData] = useState({[inputName]:""});
@@ -15,9 +16,9 @@ function SearchForm({inputName, filter}){
 
   return(
     
-      <form onSubmit={handleSubmit} className="form-inline my-2 my-sm-5">
-        <input onChange={handleChange} name={inputName} value={formData[inputName]} className="form-control mr-lg-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <form onSubmit={handleSubmit} className="SearchForm-container form-inline my-2 my-sm-5">
+        <input onChange={handleChange} name={inputName} value={formData[inputName]} className="form-control w-75" type="search" placeholder="Search Jobly" aria-label="Search"/>
+        <button className="btn btn-success my-2 my-sm-0 ms-3" type="submit">Search</button>
       </form>
     
   )

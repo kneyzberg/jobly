@@ -1,6 +1,7 @@
 import Alert from "./Alert";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import "./SignUpForm.css"
 
 const defualtForm = {
   username: "",
@@ -39,14 +40,15 @@ function SignupForm({signup}) {
   }
 
   return (
-    <div className="SignupForm-Container">
+    <div className="Homepage-home">
+      <div className="SignupForm-Text-Container">
       <h3>Sign Up</h3>
-      {!!formErrors.length && <Alert errors={formErrors} />}
+      {!!formErrors.length && <Alert errors={formErrors} alertType="danger" />}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username" className="col-sm-2 col-form-label">
+        <label htmlFor="username" className="col-form-label">
           Username
         </label>
-        <div className="col-sm-4">
+        <div className="">
           <input
             onChange={handleChange}
             name="username"
@@ -59,7 +61,7 @@ function SignupForm({signup}) {
         <label htmlFor="password" className="col-sm-2 col-form-label">
           Password
         </label>
-        <div className="col-sm-4">
+        <div className="">
           <input
             onChange={handleChange}
             name="password"
@@ -69,10 +71,10 @@ function SignupForm({signup}) {
             value={formData.password}
           />
         </div>
-        <label htmlFor="firstName" className="col-sm-2 col-form-label">
+        <label htmlFor="firstName" className="col-form-label">
           First Name
         </label>
-        <div className="col-sm-4">
+        <div className="">
           <input
             onChange={handleChange}
             name="firstName"
@@ -82,10 +84,10 @@ function SignupForm({signup}) {
             value={formData.firstName}
           />
         </div>
-        <label htmlFor="lastName" className="col-sm-2 col-form-label">
+        <label htmlFor="lastName" className="col-form-label">
           Last Name
         </label>
-        <div className="col-sm-4">
+        <div>
           <input
             onChange={handleChange}
             name="lastName"
@@ -95,10 +97,10 @@ function SignupForm({signup}) {
             value={formData.lastName}
           />
         </div>
-        <label htmlFor="email" className="col-sm-2 col-form-label">
+        <label htmlFor="email" className="col-form-label">
           Email
         </label>
-        <div className="col-sm-4">
+        <div>
           <input
             onChange={handleChange}
             name="email"
@@ -108,11 +110,14 @@ function SignupForm({signup}) {
             value={formData.email}
           />
         </div>
-        <button class="btn btn-primary " type="submit">
+        <button class="btn btn-primary mt-2" type="submit">
           Submit
         </button>
       </form>
     </div>
+
+    </div>
+    
   );
 }
 

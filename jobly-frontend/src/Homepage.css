@@ -1,0 +1,34 @@
+.Homepage-home {
+  /* height: 100vh; */
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(sf_1.jpg) no-repeat top center;
+  background-size: cover !important;
+  -webkit-background-size: cover !important;
+  overflow: hidden;
+}
+
+.Homepage-text-container {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color:#ddeeffd6;
+  box-sizing: border-box;
+  width: 400px;
+  height: 200px;
+  padding-top: 20px;
+
+}
+
+.Homepage-header {
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.Homepage-text{
+
+  font-weight: 300;
+  font-size: 1.5rem;
+}

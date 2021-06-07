@@ -3,6 +3,7 @@ import { useState } from "react";
 import UserContext from "./UserContext";
 import { useContext } from "react";
 import JoblyApi from "./api";
+import "./ProfileForm.css"
 
 function ProfileForm() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -62,15 +63,16 @@ function ProfileForm() {
   }
 
   return (
-    <div className="ProfileForm-Container">
-      <h3>Profile</h3>
+    <section className="CompanyList-container">
+      <div className="ProfileForm-content">
+      <h3 className="text-center">Edit Profile</h3>
       {!!formErrors.length && <Alert errors={formErrors} alertType="danger"/>}
       {updateSuccessful && <Alert alertType="success"/>}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username" className="col-sm-2 col-form-label">
-          Username
+        <label htmlFor="username" className="col-form-label">
+          <b>Username</b>
       </label>
-        <div className="col-sm-4">
+        <div>
           <input
             value={currentUser.username}
             readonly
@@ -80,10 +82,10 @@ function ProfileForm() {
             id="username"
           />
         </div>
-        <label htmlFor="firstName" className="col-sm-2 col-form-label">
-          First Name
+        <label htmlFor="firstName" className="col-form-label">
+          <b>First Name</b>
       </label>
-        <div className="col-sm-4">
+        <div>
           <input
             onChange={handleChange}
             name="firstName"
@@ -93,10 +95,10 @@ function ProfileForm() {
             value={formData.firstName}
           />
         </div>
-        <label htmlFor="lastName" className="col-sm-2 col-form-label">
-          Last Name
+        <label htmlFor="lastName" className="col-form-label">
+          <b>Last Name</b>
       </label>
-        <div className="col-sm-4">
+        <div>
           <input
             onChange={handleChange}
             name="lastName"
@@ -106,10 +108,10 @@ function ProfileForm() {
             value={formData.lastName}
           />
         </div>
-        <label htmlFor="email" className="col-sm-2 col-form-label">
-          Email
+        <label htmlFor="email" className="col-form-label">
+          <b>Email</b>
       </label>
-        <div className="col-sm-4">
+        <div>
           <input
             onChange={handleChange}
             name="email"
@@ -119,10 +121,10 @@ function ProfileForm() {
             value={formData.email}
           />
         </div>
-        <label htmlFor="password" className="col-sm-2 col-form-label">
-          Confirm Password
+        <label htmlFor="password" className="col-form-label">
+          <b>Confirm Password</b>
       </label>
-        <div className="col-sm-4">
+        <div>
           <input
             onChange={handleChange}
             name="password"
@@ -132,11 +134,14 @@ function ProfileForm() {
             value={formData.password}
           />
         </div>
-        <button class="btn btn-primary " type="submit">
-          Save Changes
+        <button class="btn btn-primary mt-3" type="submit">
+          <b>Save Changes</b>
       </button>
       </form>
     </div>
+
+    </section>
+    
   )
 
 }

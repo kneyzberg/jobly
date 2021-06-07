@@ -1,7 +1,8 @@
 import Alert from "./Alert";
 import JoblyApi from "./api";
-import {useState} from "react";
-import {useHistory} from "react-router-dom";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import "./LoginForm.css"
 
 function LoginForm({ login }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -18,29 +19,35 @@ function LoginForm({ login }) {
     try {
       await login(formData);
       history.push("/");
-    } catch(err){
+    } catch (err) {
       setFormErrors(err);
     }
   }
 
+  console.log(formErrors);
+
 
   return (
-    <div className="LoginForm-Container">
-      <h3>Log In</h3>
-      {!!formErrors.length && 
-        <Alert errors={formErrors}/>
-      }
-      <form onSubmit={handleSubmit}>
-          <label htmlFor="username" className="col-sm-2 col-form-label">Username</label>
-          <div className="col-sm-4">
-            <input onChange={handleChange} name="username" type="text" className="form-control" id="username" placeholder="enter username" value={formData.username}/>
+    <div className="Homepage-home">
+      <div className="LoginForm-text-container">
+        <h3>Log In</h3>
+        {!!formErrors.length &&
+          <Alert errors={formErrors} alertType="danger" />
+        }
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username" className="col-form-label">Username</label>
+          <div>
+            <input onChange={handleChange} name="username" type="text" className="form-control" id="username" placeholder="enter username" value={formData.username} />
           </div>
-            <label htmlFor="password" className="col-sm-2 col-form-label">Password</label>
-          <div className="col-sm-4">
-            <input onChange={handleChange} name="password" type="password" className="form-control" id="password" placeholder="Password" value={formData.value}/>
+          <label htmlFor="password" className="col-form-label">Password</label>
+          <div>
+            <input onChange={handleChange} name="password" type="password" className="form-control" id="password" placeholder="Password" value={formData.value} />
           </div>
-        <button class="btn btn-primary " type="submit">Submit</button>
-      </form>
+          <button class="btn btn-primary mt-2" type="submit">Submit</button>
+        </form>
+
+      </div>
+
     </div>
   )
 

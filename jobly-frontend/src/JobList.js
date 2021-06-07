@@ -31,10 +31,15 @@ function JobList(){
   if (isLoading) return <i>Loading...</i>;
 
   return(
-    <div>
+    <section className="CompanyList-container">
+      <div className="Companylist-content">
+        <h2 className="text-center">Job Board Listings</h2>
       <SearchForm inputName="title" filter={filterJobs}/>
       <JobCardList jobs={jobs}/>
     </div>
+
+    </section>
+    
     
   )
 }

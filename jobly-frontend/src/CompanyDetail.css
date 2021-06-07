@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-top: 100px;
+  background-color:#ddeeffd6;
+  padding: 30px;
+  min-width: 500px;
 }
